@@ -1,0 +1,431 @@
+[gd_scene load_steps=48 format=2]
+
+[ext_resource path="res://Scenes/Global-Scenes/General_Entity_Usage/Shield_Provider.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/Sprites/Special_Entities/Shield_Item.png" type="Texture" id=2]
+[ext_resource path="res://sounds/Sonic 3K/S3K_3A.wav" type="AudioStream" id=3]
+[ext_resource path="res://sounds/Base_SA2/AirPunch.wav" type="AudioStream" id=4]
+[ext_resource path="res://sounds/Sonic 3K/S3K_3E.wav" type="AudioStream" id=5]
+[ext_resource path="res://sounds/Sonic 3K/S3K_3F.wav" type="AudioStream" id=6]
+[ext_resource path="res://sounds/Base_MMX3/SE_46.wav" type="AudioStream" id=7]
+[ext_resource path="res://sounds/Base_MMX3/SE_41.wav" type="AudioStream" id=8]
+[ext_resource path="res://sounds/Base_MMX3/SE_0B.wav" type="AudioStream" id=9]
+[ext_resource path="res://sounds/Base_MMX3/SE_1D.wav" type="AudioStream" id=10]
+[ext_resource path="res://sounds/Sonic 3K/S3K_6E.wav" type="AudioStream" id=11]
+[ext_resource path="res://Scenes/Global-Scenes/General_Entity_Usage/Shield_Provider_Partical_States.gd" type="Script" id=12]
+[ext_resource path="res://Scenes/Global-Scenes/General_Entity_Usage/Bubble.gd" type="Script" id=13]
+[ext_resource path="res://Scenes/Global-Scenes/General_Entity_Usage/Single_Shot.gd" type="Script" id=14]
+[ext_resource path="res://Scenes/Global-Scenes/General_Entity_Usage/Homing_Attack.gd" type="Script" id=15]
+[ext_resource path="res://Scenes/Global-Scenes/General_Entity_Usage/Shield_Provider_States/Shield_Normal.gd" type="Script" id=16]
+[ext_resource path="res://Scenes/Global-Scenes/General_Entity_Usage/Fire.gd" type="Script" id=17]
+[ext_resource path="res://Scenes/Global-Scenes/General_Entity_Usage/Invincability.gd" type="Script" id=18]
+[ext_resource path="res://Scenes/Global-Scenes/General_Entity_Usage/Magnet.gd" type="Script" id=19]
+[ext_resource path="res://Scenes/Global-Scenes/General_Entity_Usage/Speed_Shoes.gd" type="Script" id=20]
+[ext_resource path="res://Scenes/Global-Scenes/General_Entity_Usage/Hook.gd" type="Script" id=21]
+[ext_resource path="res://Scenes/Global-Scenes/General_Entity_Usage/None.gd" type="Script" id=22]
+[ext_resource path="res://Scenes/Global-Scenes/General_Entity_Usage/Rock.gd" type="Script" id=23]
+[ext_resource path="res://Graphics/Sprites/Effects/SmoothTexture.png" type="Texture" id=24]
+
+[sub_resource type="CircleShape2D" id=22]
+radius = 65.0
+
+[sub_resource type="Animation" id=14]
+resource_name = "Bubble"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 144, 145 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "Fire"
+length = 2.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Homing_Attack"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 96, 97, 98, 99, 100, 101, 102, 103, 104, 105 ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "Hook"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Invincability"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 48, 49, 50, 51, 52, 53 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Magnet"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "None"
+loop = true
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 8 ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "Rock"
+length = 1.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185 ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "Shield_Normal"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 24, 25, 26, 27, 28, 29 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Single_Shot"
+length = 1.9
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Speed_Shoes"
+length = 0.1
+loop = true
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0.5, 1 )
+colors = PoolColorArray( 0.12549, 0, 0.690196, 1, 0.87451, 0.980392, 1, 1 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0.535088, 1 ), 0.0, 0.797203, 0, 0, Vector2( 0.964912, 0.472727 ), 10.3636, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+resource_local_to_scene = true
+lifetime_randomness = 0.22
+emission_shape = 5
+emission_ring_radius = 0.01
+emission_ring_inner_radius = 10.38
+emission_ring_height = 0.14
+emission_ring_axis = Vector3( 2, 0, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = 50.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = 17.65
+radial_accel_random = 0.24
+tangential_accel = 64.56
+scale = 7.02
+scale_random = 1.0
+scale_curve = SubResource( 8 )
+color_ramp = SubResource( 6 )
+hue_variation_random = 0.07
+
+[sub_resource type="Curve" id=20]
+min_value = -1.0
+_data = [ Vector2( 0, 1 ), 0.0, -1.03636, 0, 0, Vector2( 1, 1 ), -1.11313, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=21]
+curve = SubResource( 20 )
+
+[sub_resource type="Curve" id=18]
+_data = [ Vector2( 0, 1 ), 0.0, 1.70695, 0, 0, Vector2( 1, 1 ), 7.74682, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=19]
+curve = SubResource( 18 )
+
+[sub_resource type="ParticlesMaterial" id=17]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_curve = SubResource( 19 )
+hue_variation_curve = SubResource( 21 )
+
+[node name="Shield_Provider" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "Holds the logic to apply each Shield Sprite and the corridsponding Effect."
+}
+Shield_Default = 10
+Invincable_Duration = 0.0
+Speed_Shoes_Duration = 0.0
+Environmental_Effects = false
+Enemy_Interaction = 0.0
+BlackList_Shield_Type = {
+"Bubble": false,
+"Fire": false,
+"Homing_Attack": false,
+"Hook": false,
+"Invincability": false,
+"Magnet": false,
+"None": false,
+"Rock": false,
+"Shield_Normal": false,
+"Single_Shot": false,
+"Speed_Shoes": false
+}
+
+[node name="Shield_Provider_Partical_States" type="Node2D" parent="."]
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_group_": true
+}
+ParentReference = NodePath("..")
+Enable_State_Debug = true
+current_state = "None"
+
+[node name="Shield_Normal" type="Node2D" parent="Shield_Provider_Partical_States"]
+script = ExtResource( 16 )
+
+[node name="Magnet" type="Node2D" parent="Shield_Provider_Partical_States"]
+script = ExtResource( 19 )
+
+[node name="Detect_Rings" type="Area2D" parent="Shield_Provider_Partical_States/Magnet"]
+collision_layer = 0
+collision_mask = 8704
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shield_Provider_Partical_States/Magnet/Detect_Rings"]
+visible = false
+modulate = Color( 0.898039, 1, 0, 0.564706 )
+shape = SubResource( 22 )
+
+[node name="Invincability" type="Node2D" parent="Shield_Provider_Partical_States"]
+script = ExtResource( 18 )
+
+[node name="Speed_Shoes" type="Node2D" parent="Shield_Provider_Partical_States"]
+script = ExtResource( 20 )
+
+[node name="Single_Shot" type="Node2D" parent="Shield_Provider_Partical_States"]
+script = ExtResource( 14 )
+
+[node name="Homing_Attack" type="Node2D" parent="Shield_Provider_Partical_States"]
+script = ExtResource( 15 )
+
+[node name="Fire" type="Node2D" parent="Shield_Provider_Partical_States"]
+script = ExtResource( 17 )
+
+[node name="Bubble" type="Node2D" parent="Shield_Provider_Partical_States"]
+script = ExtResource( 13 )
+
+[node name="Rock" type="Node2D" parent="Shield_Provider_Partical_States"]
+script = ExtResource( 23 )
+
+[node name="Hook" type="Node2D" parent="Shield_Provider_Partical_States"]
+script = ExtResource( 21 )
+
+[node name="None" type="Node2D" parent="Shield_Provider_Partical_States"]
+script = ExtResource( 22 )
+
+[node name="Shield_VFX" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Shield" type="Sprite" parent="Shield_VFX"]
+modulate = Color( 1, 1, 1, 0.352941 )
+texture = ExtResource( 2 )
+hframes = 24
+vframes = 10
+frame = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Shield_VFX/Shield"]
+anims/Bubble = SubResource( 14 )
+anims/Fire = SubResource( 13 )
+anims/Homing_Attack = SubResource( 12 )
+anims/Hook = SubResource( 16 )
+anims/Invincability = SubResource( 9 )
+anims/Magnet = SubResource( 3 )
+anims/None = SubResource( 23 )
+anims/RESET = SubResource( 2 )
+anims/Rock = SubResource( 15 )
+anims/Shield_Normal = SubResource( 1 )
+anims/Single_Shot = SubResource( 11 )
+anims/Speed_Shoes = SubResource( 10 )
+
+[node name="Particals" type="Particles2D" parent="Shield_VFX/Shield"]
+emitting = false
+amount = 500
+lifetime = 3.57
+one_shot = true
+speed_scale = 3.31
+explosiveness = 0.71
+randomness = 0.42
+process_material = SubResource( 4 )
+
+[node name="Extra_Protection" type="Particles2D" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.788235 )
+amount = 5
+lifetime = 12.56
+speed_scale = 1.21
+explosiveness = 0.09
+local_coords = false
+process_material = SubResource( 17 )
+texture = ExtResource( 24 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Shield_SFX" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_editor_description_": "This will interface with Audio
+"
+}
+
+[node name="Shield_Normal" type="AudioStreamPlayer" parent="Shield_SFX"]
+stream = ExtResource( 3 )
+volume_db = -1.506
+
+[node name="Magnet" type="AudioStreamPlayer" parent="Shield_SFX"]
+stream = ExtResource( 7 )
+
+[node name="Invincability" type="AudioStreamPlayer" parent="Shield_SFX"]
+stream = ExtResource( 4 )
+
+[node name="Single_Shot" type="AudioStreamPlayer" parent="Shield_SFX"]
+stream = ExtResource( 9 )
+
+[node name="Homing_Attack" type="AudioStreamPlayer" parent="Shield_SFX"]
+stream = ExtResource( 8 )
+
+[node name="Bubble" type="AudioStreamPlayer" parent="Shield_SFX"]
+stream = ExtResource( 6 )
+
+[node name="Rock" type="AudioStreamPlayer" parent="Shield_SFX"]
+stream = ExtResource( 11 )
+
+[node name="Hook" type="AudioStreamPlayer" parent="Shield_SFX"]
+stream = ExtResource( 10 )
+
+[node name="Speed_Shoes" type="AudioStreamPlayer" parent="Shield_SFX"]
+
+[node name="None" type="AudioStreamPlayer" parent="Shield_SFX"]
+
+[node name="Fire" type="AudioStreamPlayer" parent="Shield_SFX"]
+stream = ExtResource( 5 )
+
+[connection signal="body_entered" from="Shield_Provider_Partical_States/Magnet/Detect_Rings" to="Shield_Provider_Partical_States/Magnet" method="_on_Detect_Rings_body_entered"]
