@@ -1,0 +1,269 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Graphics/Sprites/Object_Entites/Generic/Special-Ring.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/UI/FontNumbers.png" type="Texture" id=3]
+[ext_resource path="res://addons/My_Helper_Addons/Camera/Gompo_Camera2D.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Global-Scenes/Player-Menu.tscn" type="PackedScene" id=5]
+
+[sub_resource type="StyleBoxFlat" id=41]
+bg_color = Color( 0.556863, 0.862745, 0.980392, 1 )
+
+[sub_resource type="StyleBoxFlat" id=42]
+bg_color = Color( 0.470588, 0.862745, 0.470588, 1 )
+
+[sub_resource type="Theme" id=43]
+ProgressBar/styles/bg = SubResource( 41 )
+ProgressBar/styles/fg = SubResource( 42 )
+
+[node name="QOL_Camera" type="Camera2D"]
+current = true
+zoom = Vector2( 0.65, 0.65 )
+process_mode = 0
+limit_left = -32
+limit_top = -50000
+limit_right = 50000
+limit_bottom = 1250
+limit_smoothed = true
+drag_margin_left = 0.55
+drag_margin_right = 0.47
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource( 4 )
+CameraPullBackStrength = 1.5
+
+[node name="Menu" type="CanvasLayer" parent="."]
+pause_mode = 2
+layer = 5
+__meta__ = {
+"_editor_description_": "Menu Elements"
+}
+
+[node name="Player-Menu" parent="Menu" instance=ExtResource( 5 )]
+pause_mode = 2
+visible = false
+
+[node name="UI" type="CanvasLayer" parent="."]
+pause_mode = 2
+__meta__ = {
+"_editor_description_": "UI Elements
+"
+}
+
+[node name="Main-Items" type="Control" parent="UI"]
+margin_left = 2.0
+margin_top = 168.0
+margin_right = 722.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="TimeRectReference" type="ReferenceRect" parent="UI/Main-Items"]
+margin_left = 10.0
+margin_top = -152.0
+margin_right = 164.0
+margin_bottom = -134.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TimeContainer" type="HBoxContainer" parent="UI/Main-Items/TimeRectReference"]
+margin_right = 154.0
+margin_bottom = 18.0
+custom_constants/separation = 20
+
+[node name="MS" type="Control" parent="UI/Main-Items/TimeRectReference/TimeContainer"]
+margin_bottom = 18.0
+
+[node name="MS2" type="Sprite" parent="UI/Main-Items/TimeRectReference/TimeContainer/MS"]
+position = Vector2( 23, 10 )
+texture = ExtResource( 3 )
+hframes = 7
+vframes = 2
+
+[node name="MS" type="Sprite" parent="UI/Main-Items/TimeRectReference/TimeContainer/MS"]
+position = Vector2( 9, 10 )
+texture = ExtResource( 3 )
+hframes = 7
+vframes = 2
+
+[node name="Splitter" type="Control" parent="UI/Main-Items/TimeRectReference/TimeContainer"]
+margin_left = 20.0
+margin_right = 20.0
+margin_bottom = 18.0
+
+[node name="Sprite" type="Sprite" parent="UI/Main-Items/TimeRectReference/TimeContainer/Splitter"]
+position = Vector2( 16, 10 )
+texture = ExtResource( 3 )
+hframes = 7
+vframes = 2
+frame = 10
+
+[node name="SS" type="Control" parent="UI/Main-Items/TimeRectReference/TimeContainer"]
+margin_left = 40.0
+margin_right = 40.0
+margin_bottom = 18.0
+
+[node name="SS2" type="Sprite" parent="UI/Main-Items/TimeRectReference/TimeContainer/SS"]
+position = Vector2( 23, 10 )
+texture = ExtResource( 3 )
+hframes = 7
+vframes = 2
+
+[node name="SS" type="Sprite" parent="UI/Main-Items/TimeRectReference/TimeContainer/SS"]
+position = Vector2( 9, 10 )
+texture = ExtResource( 3 )
+hframes = 7
+vframes = 2
+
+[node name="Splitter2" type="Control" parent="UI/Main-Items/TimeRectReference/TimeContainer"]
+margin_left = 60.0
+margin_right = 60.0
+margin_bottom = 18.0
+
+[node name="Sprite" type="Sprite" parent="UI/Main-Items/TimeRectReference/TimeContainer/Splitter2"]
+position = Vector2( 16, 10 )
+texture = ExtResource( 3 )
+hframes = 7
+vframes = 2
+frame = 10
+
+[node name="MM" type="Control" parent="UI/Main-Items/TimeRectReference/TimeContainer"]
+margin_left = 80.0
+margin_right = 80.0
+margin_bottom = 18.0
+
+[node name="MM" type="Sprite" parent="UI/Main-Items/TimeRectReference/TimeContainer/MM"]
+position = Vector2( 9, 10 )
+texture = ExtResource( 3 )
+hframes = 7
+vframes = 2
+
+[node name="MM2" type="Sprite" parent="UI/Main-Items/TimeRectReference/TimeContainer/MM"]
+position = Vector2( 23, 10 )
+texture = ExtResource( 3 )
+hframes = 7
+vframes = 2
+
+[node name="Splitter3" type="Control" parent="UI/Main-Items/TimeRectReference/TimeContainer"]
+margin_left = 100.0
+margin_right = 100.0
+margin_bottom = 18.0
+
+[node name="Sprite" type="Sprite" parent="UI/Main-Items/TimeRectReference/TimeContainer/Splitter3"]
+position = Vector2( 17, 10 )
+texture = ExtResource( 3 )
+hframes = 7
+vframes = 2
+frame = 10
+
+[node name="HH" type="Control" parent="UI/Main-Items/TimeRectReference/TimeContainer"]
+margin_left = 120.0
+margin_right = 120.0
+margin_bottom = 18.0
+
+[node name="HH2" type="Sprite" parent="UI/Main-Items/TimeRectReference/TimeContainer/HH"]
+position = Vector2( 23, 10 )
+texture = ExtResource( 3 )
+hframes = 7
+vframes = 2
+
+[node name="HH" type="Sprite" parent="UI/Main-Items/TimeRectReference/TimeContainer/HH"]
+position = Vector2( 9, 10 )
+texture = ExtResource( 3 )
+hframes = 7
+vframes = 2
+
+[node name="RingRectReference" type="ReferenceRect" parent="UI/Main-Items"]
+margin_left = 12.0
+margin_top = -128.0
+margin_right = 158.0
+margin_bottom = -112.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RingContainer" type="HBoxContainer" parent="UI/Main-Items/RingRectReference"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ring" type="Control" parent="UI/Main-Items/RingRectReference/RingContainer"]
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="UI/Main-Items/RingRectReference/RingContainer/Ring"]
+position = Vector2( 11, 8 )
+texture = ExtResource( 2 )
+hframes = 4
+vframes = 2
+
+[node name="Splitter4" type="Control" parent="UI/Main-Items/RingRectReference/RingContainer"]
+margin_left = 4.0
+margin_right = 4.0
+margin_bottom = 40.0
+
+[node name="Sprite" type="Sprite" parent="UI/Main-Items/RingRectReference/RingContainer/Splitter4"]
+position = Vector2( 26, 10 )
+texture = ExtResource( 3 )
+hframes = 7
+vframes = 2
+frame = 10
+
+[node name="RingCounter" type="Control" parent="UI/Main-Items/RingRectReference/RingContainer"]
+margin_left = 8.0
+margin_right = 8.0
+margin_bottom = 40.0
+
+[node name="U" type="Sprite" parent="UI/Main-Items/RingRectReference/RingContainer/RingCounter"]
+position = Vector2( 56, 9 )
+texture = ExtResource( 3 )
+hframes = 7
+vframes = 2
+
+[node name="T" type="Sprite" parent="UI/Main-Items/RingRectReference/RingContainer/RingCounter"]
+position = Vector2( 44, 9 )
+texture = ExtResource( 3 )
+hframes = 7
+vframes = 2
+
+[node name="H" type="Sprite" parent="UI/Main-Items/RingRectReference/RingContainer/RingCounter"]
+position = Vector2( 32, 9 )
+texture = ExtResource( 3 )
+hframes = 7
+vframes = 2
+
+[node name="ChargeReferenceRect" type="ReferenceRect" parent="UI/Main-Items"]
+margin_left = 168.0
+margin_top = -152.0
+margin_right = 222.0
+margin_bottom = -134.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ChargeProgressBar" type="ProgressBar" parent="UI/Main-Items/ChargeReferenceRect"]
+margin_right = 54.0
+margin_bottom = 18.0
+theme = SubResource( 43 )
+step = 0.1
+rounded = true
+allow_greater = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CameraStateMachine" type="Node" parent="."]
+
+[node name="GroundAndAirMode" type="Node" parent="CameraStateMachine"]
+
+[node name="WallMode" type="Node" parent="CameraStateMachine"]
+
+[node name="BossStaticMode" type="Node" parent="CameraStateMachine"]
+
+[node name="BossDynamicRunMode" type="Node" parent="CameraStateMachine"]

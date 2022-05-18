@@ -1,0 +1,4 @@
+[gd_scene format=2]
+
+[node name="QOL_Camera" type="Camera2D"]
+rotating = true

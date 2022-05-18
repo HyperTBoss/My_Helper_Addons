@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/My_Helper_Addons/State_Helpers/State_Machine/state_scripts/State_Machine.gd" type="Script" id=1]
+
+[node name="State_Machine" type="Node"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "Cannot have the same state name.
+Must be in the root of the node list. 
+Or just pass down a reference to whatever node."
+}
